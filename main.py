@@ -3,14 +3,14 @@ from func import get_prix_exact
 from func import extract_details
 
 try:
-    image_path = 'img/6-26.png'
+    image_path = 'img/4-36.png'
 except:
     print("Image ou chemin non reconnue")
 
 try:
-    text = extract_details(image_path)
-    for line in text:
-        print(line)
+    extract_details(image_path)
+    # for line in text:
+    #     print(line)
 
     #  # Extraction des mots de l'image
     # mots = extract_text_from_image(image_path)

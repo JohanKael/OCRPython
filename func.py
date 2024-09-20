@@ -42,13 +42,10 @@ def extract_details(image_path):
 
 
 # fonction qui extrait les mots d'une image
-def extract_text_from_image(image_path):
+def extract_text_from_image(image: Image.Image):
 
     # specification du chemin vers l'executable
     pytesseract.pytesseract.tesseract_cmd = r'C:\\Users\\st121\\AppData\\Local\\Programs\\Tesseract-OCR\\tesseract.exe'
-
-    # charger l'image
-    image = Image.open(image_path)
 
     # Extraire le texte
     texte = pytesseract.image_to_string(image)

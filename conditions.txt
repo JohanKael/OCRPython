@@ -1,0 +1,4 @@
+Pour avoir un résultat authentique et près de la réalité, les conditions sont les suivantes :
+- qualité image
+- le scan prend les chiffres depuis la première session jusqu'à la dernière sans ajouter ni oublier une ligne
+- ne pas entourer les chiffres

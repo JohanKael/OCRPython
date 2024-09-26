@@ -51,12 +51,16 @@ def extract_details(image_path):
 
 # fonction qui extrait les mots d'une image
 def extract_text_from_image(image_path):
-
-    # specification du chemin vers l'executable
+    # Spécifiez le chemin vers l'exécutable de Tesseract
     pytesseract.pytesseract.tesseract_cmd = r'C:\\Users\\st121\\AppData\\Local\\Programs\\Tesseract-OCR\\tesseract.exe'
 
-    # charger l'image
-    image = Image.open(image_path)
+    # Si image_path est un chemin de fichier
+    if isinstance(image_path, str):
+        # Charger l'image
+        image = Image.open(image_path)
+    else:
+        # Supposer que image_path est déjà un objet Image
+        image = image_path
 
     # Extraire le texte
     texte = pytesseract.image_to_string(image)
@@ -64,8 +68,8 @@ def extract_text_from_image(image_path):
     # Diviser le texte en lignes
     lignes = texte.splitlines()
 
-    # Afficher les lignes qui contiennent "Ar" ou "4r" ou "A4r"
-    lignes_avec_ar = [ligne for ligne in lignes if 'Ar' in ligne or '4r' in ligne or 'A4r' in ligne or 'Ae' in ligne or 'br' in ligne or 'he' in ligne or 'ay' in ligne or 'hr' in ligne or 'AP' in ligne or 'A' in ligne or 'fr' in ligne or 'ar' in ligne or 'At' in ligne or 'PF' in ligne or 'r' in ligne]
+    # Afficher les lignes qui contiennent les motifs recherchés
+    lignes_avec_ar = [ligne for ligne in lignes if any(keyword in ligne for keyword in ['Ar', '4r', 'A4r', 'Ae', 'br', 'he', 'ay', 'hr', 'AP', 'A', 'fr', 'ar', 'At', 'PF', 'r'])]
 
     mots_extraire = []
 

@@ -12,7 +12,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://10.0.105.140:5173"],  # Remplacez par votre domaine ou utilisez ["*"] pour autoriser tous
+    allow_origins=["*"],  # Remplacez par votre domaine ou utilisez ["*"] pour autoriser tous
     allow_credentials=True,
     allow_methods=["*"],  # Autoriser toutes les méthodes (GET, POST, etc.)
     allow_headers=["*"],  # Autoriser tous les headers
@@ -43,4 +43,4 @@ async def upload_images(files: List[UploadFile] = File(...)):
 
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run(app, host='127.0.0.1', port=8000)
+    uvicorn.run(app, host='10.0.105.140', port=5000)

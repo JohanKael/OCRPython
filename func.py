@@ -3,46 +3,43 @@ import pytesseract
 from PIL import Image
 import re
 
-# fonction qui extrait les mots d'une image
-def extract_details(image_path):
+# # fonction qui extrait les mots d'une image
+# def extract_details(image_path):
 
-    # specification du chemin vers l'executable
-    pytesseract.pytesseract.tesseract_cmd = r'C:\\Users\\st121\\AppData\\Local\\Programs\\Tesseract-OCR\\tesseract.exe'
+#     # specification du chemin vers l'executable
+#     pytesseract.pytesseract.tesseract_cmd = r'C:\\Users\\st121\\AppData\\Local\\Programs\\Tesseract-OCR\\tesseract.exe'
 
-    # charger l'image
-    image = Image.open(image_path)
+#     # charger l'image
+#     image = Image.open(image_path)
 
-    # Extraire le texte
-    texte = pytesseract.image_to_string(image)
+#     # Extraire le texte
+#     texte = pytesseract.image_to_string(image)
 
-    # Diviser le texte en lignes
-    lignes = texte.splitlines()
+#     # Diviser le texte en lignes
+#     lignes = texte.splitlines()
 
-    # for  ligne in lignes:
-    #     print(ligne)
+#     # for  ligne in lignes:
+#     #     print(ligne)
 
-    ##### Afficher les lignes qui contiennent "Ar" ou "4r" ou "A4r"
-    lignes_avec_ar = [ligne for ligne in lignes if 'Ar' in ligne or '4r' in ligne or 'A4r' in ligne or 'Ae' in ligne or 'br' in ligne or 'he' in ligne or 'ay' in ligne or 'hr' in ligne or 'AP' in ligne or 'A' in ligne or 'fr' in ligne or 'ar' in ligne or 'At' in ligne or 'PF' in ligne or 'r' in ligne]
-    print(f"La longueur des mots est de {len(lignes_avec_ar)}")
+#     ##### Afficher les lignes qui contiennent "Ar" ou "4r" ou "A4r"
+#     lignes_avec_ar = [ligne for ligne in lignes if 'Ar' in ligne or '4r' in ligne or 'A4r' in ligne or 'Ae' in ligne or 'br' in ligne or 'he' in ligne or 'ay' in ligne or 'hr' in ligne or 'AP' in ligne or 'A' in ligne or 'fr' in ligne or 'ar' in ligne or 'At' in ligne or 'PF' in ligne or 'r' in ligne]
+#     print(f"La longueur des mots est de {len(lignes_avec_ar)}")
 
-    for line in lignes_avec_ar:
-        print(line)
+#     for line in lignes_avec_ar:
+#         print(line)
 
-    mots_extraire = []
+#     mots_extraire = []
 
-    # Parcourir les lignes pour extraire les mots devant les motifs
-    for ligne in lignes_avec_ar:
-        match = re.search(r'(\S+)\s*(?:/| ,|,| a0| NA|000)', ligne)
-        if match:
-            mots_extraire.append(match.group(1))  # Ajouter le mot trouvé
+#     # Parcourir les lignes pour extraire les mots devant les motifs
+#     for ligne in lignes_avec_ar:
+#         match = re.search(r'(\S+)\s*(?:/| ,|,| a0| NA|000)', ligne)
+#         if match:
+#             mots_extraire.append(match.group(1))  # Ajouter le mot trouvé
 
-    print(f'----------- Longueur = {len(mots_extraire)}')
+#     print(f'----------- Longueur = {len(mots_extraire)}')
 
-    for line in mots_extraire:
-        print(line)
-
-
-
+#     for line in mots_extraire:
+#         print(line)
 
 
 

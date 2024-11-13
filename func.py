@@ -49,7 +49,7 @@ import re
 # fonction qui extrait les mots d'une image
 def extract_text_from_image(image_path):
     # Spécifiez le chemin vers l'exécutable de Tesseract
-    pytesseract.pytesseract.tesseract_cmd = r'C:\\Users\\st121\\AppData\\Local\\Programs\\Tesseract-OCR\\tesseract.exe'
+    pytesseract.pytesseract.tesseract_cmd = r'Tesseract-OCR\\tesseract.exe'
 
     # Si image_path est un chemin de fichier
     if isinstance(image_path, str):
